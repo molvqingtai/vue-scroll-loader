@@ -38,7 +38,6 @@ export default {
     }
   },
   mounted () {
-    console.log('mounted')
     window.addEventListener('wheel', this.infiniteScroll)
   }
 
