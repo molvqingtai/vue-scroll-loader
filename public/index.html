@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="zh" dir="ltr">
+
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>infinite-scroll-vue</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but infinite-scroll-vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Vue-Scroll-Loadbar</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <v-scroll-loadbar :load-more="handleLog" :load-enable="load"></v-scroll-loadbar>
+    </div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data(){
+            return {
+                load:true
+            }
+        },
+        methods: {
+            handleLog() {
+                console.log('test.....')
+            }
+        }
+    })
+</script>
+
 </html>

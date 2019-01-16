@@ -1,23 +1,45 @@
 {
-  "name": "infinite-scroll-vue",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "vue": "^2.5.21"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.3.0",
-    "@vue/cli-plugin-eslint": "^3.3.0",
-    "@vue/cli-service": "^3.3.0",
-    "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.5.21"
-  }
+    "name": "vue-scroll-loadbar",
+    "version": "0.1.0",
+    "description": "Scroll loadbar for vue.js",
+    "main": "index.js",
+    "scripts": {
+        "serve": "vue-cli-service serve --open ./src/index.js",
+        "build": "vue-cli-service build --target lib ./src/index.js",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "three-dots": "^0.1.2"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.3.0",
+        "@vue/cli-plugin-eslint": "^3.3.0",
+        "@vue/cli-service": "^3.3.0",
+        "@vue/eslint-config-standard": "^4.0.0",
+        "babel-eslint": "^10.0.1",
+        "eslint": "^5.8.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "node-sass": "^4.9.0",
+        "sass-loader": "^7.0.1",
+        "vue": "^2.5.22",
+        "vue-template-compiler": "^2.5.21"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/molvqingtai/vue-scroll-loadbar.git"
+    },
+    "keywords": [
+        "vue-scroll-loadbar",
+        "vue-scroll",
+        "vue-scroll-loading",
+        "vue-infinte",
+        "vue-infinte-scroll",
+        "vue-infinte-loading"
+    ],
+    "author": "molvqingtai",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/molvqingtai/vue-scroll-loadbar/issues"
+    },
+    "homepage": "https://github.com/molvqingtai/vue-scroll-loadbar#readme"
 }
