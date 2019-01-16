@@ -38,6 +38,10 @@ export default {
     }
   },
   mounted () {
+<<<<<<< HEAD
+=======
+    console.log('mounted')
+>>>>>>> webpack transform to vue-cli
     window.addEventListener('wheel', this.infiniteScroll)
   }
 
