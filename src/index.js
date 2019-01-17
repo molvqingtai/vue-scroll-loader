@@ -1,12 +1,12 @@
-import VScrollLoadbar from './components/V-Scroll-Loadbar.vue'
+import VScrollLoader from './components/V-Scroll-Loader.vue'
 
-const vScrollLoadbarPlugin = {
-  install (Vue) {
-    Vue.component(VScrollLoadbar.name, VScrollLoadbar)
+const VScrollLoaderPlugin = {
+  install (vue, option) {
+    vue.component(VScrollLoader.name, VScrollLoader)
   }
 }
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(vScrollLoadbarPlugin)
+  window.Vue.use(VScrollLoaderPlugin)
 }
 
-export default vScrollLoadbarPlugin
+export default VScrollLoaderPlugin

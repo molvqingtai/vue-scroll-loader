@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>Vue-Scroll-Loadbar</title>
+    <title>Vue-Scroll-Loader</title>
     <script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
     <div id="app">
-        <v-scroll-loadbar :load-more="handleLog" :load-enable="load"></v-scroll-loadbar>
+        <v-scroll-loader :loader-method="handleLog" :loader-enable="load" :loader-style="{type:'dot-spin',size:'7px',color:'blue'}"></v-scroll-loader>
     </div>
 </body>
 <script type="text/javascript">

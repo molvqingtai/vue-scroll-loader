@@ -1,7 +1,7 @@
 {
-    "name": "vue-scroll-loadbar",
+    "name": "vue-scroll-loader",
     "version": "0.1.0",
-    "description": "Scroll loadbar for vue.js",
+    "description": "Scroll loader for vue.js",
     "main": "index.js",
     "scripts": {
         "serve": "vue-cli-service serve --open ./src/index.js",
@@ -9,6 +9,7 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "loaders.css": "^0.1.2",
         "three-dots": "^0.1.2"
     },
     "devDependencies": {
@@ -29,7 +30,7 @@
         "url": "git+https://github.com/molvqingtai/vue-scroll-loadbar.git"
     },
     "keywords": [
-        "vue-scroll-loadbar",
+        "vue-scroll-loader",
         "vue-scroll",
         "vue-scroll-loading",
         "vue-infinte",
