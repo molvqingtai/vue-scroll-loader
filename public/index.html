@@ -10,7 +10,7 @@
 
 <body>
     <div id="app">
-        <v-scroll-loader :loader-method="handleLog" :loader-enable="load" :loader-style="{type:'dot-spin',size:'7px',color:'blue'}"></v-scroll-loader>
+        <v-scroll-loader :loader-method="handleLog" :loader-enable="load" :loader-option="option"></v-scroll-loader>
     </div>
 </body>
 <script type="text/javascript">
@@ -18,7 +18,12 @@
         el: '#app',
         data(){
             return {
-                load:true
+                load:true,
+                option:{
+                  dots:'dot-flashing',
+                  size:'10px',
+                  color:'255,0,0'
+                }
             }
         },
         methods: {

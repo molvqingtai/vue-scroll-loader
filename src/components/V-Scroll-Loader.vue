@@ -1,12 +1,13 @@
 <template lang="html">
     <div class="v-scroll-loader">
-      <div class="">
-        <div class="three-dots" :class="[type]" :style="style"></div>
+      <div class="three-dots-container">
+        <div class="three-dots">
+          <div :class="[dots]" :style="style"></div>
+        </div>
       </div>
     </div>
 </template>
 <script>
-import balls from './balls.js'
 export default {
   name: 'VScrollLoader',
   props: {
@@ -22,27 +23,28 @@ export default {
       type: Number,
       default: 10
     },
-    'loader-style': {
+    'loader-option': {
       type: Object,
-      default:{
-        type:'dot-spin'
+      default: () => {
+        return {
+          dots: 'dot-spin'
+        }
       }
-    },
+    }
   },
   computed: {
-    type() {
-      return this.loaderStyle.type
+    dots () {
+      return this.loaderOption.dots
     },
-    style() {
+    style () {
       return {
-        'width': this.loaderStyle.size,
-        'height': this.loaderStyle.size,
-        'background-color': this.loaderStyle.color
+        '--size': this.loaderOption.size,
+        '--color': this.loaderOption.color
       }
     }
   },
   methods: {
-    infiniteScroll() {
+    infiniteScroll () {
       let isElementInViewport = () => {
         let rect = this.$el.getBoundingClientRect()
         return (rect.top >= 0 && rect.bottom <= window.innerHeight)
@@ -50,28 +52,25 @@ export default {
       this.loaderEnable && isElementInViewport() && this.loaderMethod()
     }
   },
-  mounted() {
+  mounted () {
     window.addEventListener('wheel', this.infiniteScroll)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~three-dots';
+@import './three-dots.variables.css';
 .v-scroll-loader {
-    padding: 10px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    .three-dots {
-        border-radius: 50% !important;
-        &::after,
-        &::before {
-            width: inherit;
-            height: inherit;
-            border-radius: inherit;
-            background-color: inherit;
-        }
+    .three-dots-container{
+      width: 30%;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
     }
 }
 </style>
