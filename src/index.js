@@ -1,12 +1,12 @@
-import VScrollLoader from './components/V-Scroll-Loader.vue'
+import ScrollLoader from './components/Scroll-Loader.vue'
 
-const VScrollLoaderPlugin = {
+const ScrollLoaderPlugin = {
   install (vue, option) {
-    vue.component(VScrollLoader.name, VScrollLoader)
+    vue.component(ScrollLoader.name, ScrollLoader)
   }
 }
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VScrollLoaderPlugin)
+  window.Vue.use(ScrollLoaderPlugin)
 }
 
-export default VScrollLoaderPlugin
+export default ScrollLoaderPlugin

@@ -1,37 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh" dir="ltr">
-
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>Vue-Scroll-Loader</title>
-    <script src="https://unpkg.com/vue"></script>
-</head>
-
-<body>
-    <div id="app">
-        <v-scroll-loader :loader-method="handleLog" :loader-enable="load" :loader-option="option"></v-scroll-loader>
-    </div>
-</body>
-<script type="text/javascript">
-    new Vue({
-        el: '#app',
-        data(){
-            return {
-                load:true,
-                option:{
-                  dots:'dot-flashing',
-                  size:'10px',
-                  color:'255,0,0'
-                }
-            }
-        },
-        methods: {
-            handleLog() {
-                console.log('test.....')
-            }
-        }
-    })
-</script>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>Scroll-Loader</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but Scroll-Loader doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
