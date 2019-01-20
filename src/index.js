@@ -1,10 +1,11 @@
 import ScrollLoader from './components/Scroll-Loader.vue'
 
 const ScrollLoaderPlugin = {
-  install (vue, option) {
-    vue.component(ScrollLoader.name, ScrollLoader)
+  install (Vue) {
+    Vue.component(ScrollLoader.name, ScrollLoader)
   }
 }
+
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(ScrollLoaderPlugin)
 }

@@ -40,6 +40,7 @@ export default {
       let pastTime = null
       return () => {
         let nowTime = +new Date()
+
         if (nowTime - pastTime > this.loaderThrottle || !pastTime) {
           this.loaderEnable ? this.$el.style.display = 'flex' : this.$el.style.display = 'none'
           this.loaderEnable && this.isLoaderInViewport() && this.loaderMethod()
@@ -49,7 +50,7 @@ export default {
     },
     isLoaderInViewport () {
       let rect = this.$el.getBoundingClientRect()
-      return (rect.top >= 0 && rect.bottom <= window.innerHeight)
+      return (rect.top >= 0 && rect.bottom - 1 <= window.innerHeight)
     }
   },
   mounted () {

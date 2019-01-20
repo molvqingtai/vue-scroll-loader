@@ -8,7 +8,9 @@
         "build": "vue-cli-service build --target lib ./src/index.js",
         "lint": "vue-cli-service lint"
     },
-    "dependencies": {},
+    "dependencies": {
+        "axios": "^0.18.0"
+    },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^3.3.0",
         "@vue/cli-plugin-eslint": "^3.3.0",
