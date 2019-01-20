@@ -26,7 +26,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/molvqingtai/vue-scroll-loadber.git"
+        "url": "git+https://github.com/molvqingtai/vue-scroll-loader.git"
     },
     "keywords": [
         "vue-scroll-loader",
@@ -39,7 +39,7 @@
     "author": "molvqingtai",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/molvqingtai/vue-scroll-loadber/issues"
+        "url": "https://github.com/molvqingtai/vue-scroll-loader/issues"
     },
-    "homepage": "https://github.com/molvqingtai/vue-scroll-loadber#readme"
+    "homepage": "https://github.com/molvqingtai/vue-scroll-loader#readme"
 }
