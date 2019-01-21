@@ -21,11 +21,11 @@ export default {
     },
     'loader-throttle': {
       type: Number,
-      default: 0
+      default: 100
     },
     'loader-distance': {
       type: Number,
-      default: 100
+      default: 0
     },
     'loader-color': {
       type: String,
