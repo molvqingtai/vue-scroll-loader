@@ -6,6 +6,8 @@
 
 A vue-scroll-loader plugin for vue.js.
 
+**[View demo](https://molvqingtai.github.io/vue-scroll-loader/demo.html)**
+
 
 
 ## Install
@@ -97,4 +99,10 @@ new Vue({
 
 ## License
 
-[MIT](https://github.com/molvqingtai/vue-scroll-loader/blob/dev/LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/molvqingtai/vue-scroll-loader/blob/master/LICENSE) file for details
+
+
+
+## Acknowledgments
+
+[three-dots](https://github.com/nzbin/three-dots)
