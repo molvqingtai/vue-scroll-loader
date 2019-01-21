@@ -26,14 +26,14 @@
       </div>
     </div>
     <div class="copyright-container" v-if="!loadMore">
-      <a class="copyright-container__link" href="#">
+      <a class="copyright-container__link" href="https://github.com/molvqingtai">
         <p class="copyright-container__text">By molvqingtai</p>
         <img class="copyright-container__icon" src="./src/assets/github.png">
       </a>
     </div>
 
     <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore" loader-color="rgba(102,102,102,.5)"></scroll-loader>
-
+  <!--   You can replace the default loading animation with slot here. -->
   </div>
 </body>
 
