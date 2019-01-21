@@ -30,8 +30,6 @@ Use **scroll-loader** to enable the scroll load, and use **loader-*** props to d
 
 The method appointed as the props of **loader-method** will be executed when the bottom of the element reaches the bottom of the viewport.
 
-
-
 ```html
 <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
 	<!-- You can replace the default loading animation with slot here. -->
@@ -39,7 +37,12 @@ The method appointed as the props of **loader-method** will be executed when the
 ```
 
 ```javascript
-  new Vue({
+import Vue from 'vue'
+import ScrollLoader from 'vue-scroll-loader'
+
+Vue.use(ScrollLoader)
+
+new Vue({
     el: '#app',
     data() {
       return {
@@ -86,7 +89,7 @@ The method appointed as the props of **loader-method** will be executed when the
 | :loader-method   | Scrolling to the bottom to execute the method                | true         | Function | --      |
 | :loader-enable   | Scroll-loader will be disabled if the value of this props is false. | true         | Boolean  | --      |
 | :loder-throttle  | Check the frequency of scrolling to the bottom (ms)          | false        | Number   | 100     |
-| :loader-distance | The minimum distance between the bottom of the element and the bottom of the viewport before the scroll-loader method is executed. | false        | Number   | 0       |
+| :loader-distance | The minimum distance between the bottom of the scroll-loader and the bottom of the viewport before the ":loader-method" method is executed. | false        | Number   | 0       |
 | loader-color     | Load the color of the animation                              | false        | String   | #96C8FF |
 
 
