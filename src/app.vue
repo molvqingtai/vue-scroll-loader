@@ -2,9 +2,10 @@
 <div id="app">
   <h1 class="title-text">Vue-Scroll-Loader</h1>
   <div class="images-container">
-    <div class="images-item animated fadeIn" v-for="image of images" :key="image.id">
+    <div class="images-item animated fadeIn" v-for="(image,index) of images" :key="index">
       <div class="images-card">
-        <img class="images-card__image" :src="image.urls.thumb" alt="">
+        <img class="images-card__image" :src="image.urls.small" @load="masksHide.push(index)">
+        <div class="images-card__mask" :style="{'background-color':image.color}" v-if="!masksHide.includes(index)"></div>
       </div>
     </div>
   </div>
@@ -26,8 +27,9 @@ export default {
     return {
       loadMore: true,
       page: 1,
-      per_page: 12,
-      images: []
+      pageSize: 9,
+      images: [],
+      masksHide: []
     }
   },
   methods: {
@@ -35,7 +37,7 @@ export default {
       this.$axios.get('https://api.unsplash.com/photos', {
         params: {
           page: this.page++,
-          per_page: this.per_page,
+          per_page: this.pageSize,
           client_id: 'e874834b096dcd107c232fe4b0bb521158b62e486580c988b0a75cb0b77a2abe'
         }
       })
@@ -49,7 +51,7 @@ export default {
   },
   watch: {
     page (n) {
-      n > 10 && (this.loadMore = false)
+      n > 30 && (this.loadMore = false)
     }
   },
   mounted () {
@@ -59,5 +61,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
+@import '~animate.css';
 @import './assets/style.css';
 </style>
