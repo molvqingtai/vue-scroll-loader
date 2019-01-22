@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="scroll-loader">
+    <div class="scroll-loader" v-if="loaderEnable">
         <slot>
           <div class="three-dots">
             <div class="dot-floating" :style="color"></div>
@@ -10,6 +10,11 @@
 <script>
 export default {
   name: 'ScrollLoader',
+  data() {
+    return {
+      closure: null,
+    }
+  },
   props: {
     'loader-method': {
       type: Function,
@@ -33,31 +38,37 @@ export default {
     }
   },
   computed: {
-    color () {
+    color() {
       return {
         'background-color': this.loaderColor
       }
     }
   },
   methods: {
-    scrollLoader () {
+    scrollLoader() {
       let pastTime = null
-      return () => {
+      return this.closure = () => {
         let nowTime = +new Date()
         if (nowTime - pastTime > this.loaderThrottle || !pastTime) {
-          this.loaderEnable ? this.$el.style.display = 'flex' : this.$el.style.display = 'none'
           this.loaderEnable && this.isLoaderInViewport() && this.loaderMethod()
           pastTime = nowTime
         }
       }
     },
-    isLoaderInViewport () {
+    isLoaderInViewport() {
       let rect = this.$el.getBoundingClientRect()
       return (rect.top >= 0 && rect.bottom - this.loaderDistance <= window.innerHeight)
     }
   },
-  mounted () {
+  mounted() {
     window.addEventListener('wheel', this.scrollLoader())
+  },
+  activated() {
+    !this.closure && window.addEventListener('wheel', this.scrollLoader())
+  },
+  deactivated() {
+    window.removeEventListener('wheel', this.closure)
+    this.closure = null
   }
 }
 </script>
