@@ -10,9 +10,9 @@
 <script>
 export default {
   name: 'ScrollLoader',
-  data() {
+  data () {
     return {
-      closure: null,
+      closure: null
     }
   },
   props: {
@@ -38,35 +38,35 @@ export default {
     }
   },
   computed: {
-    color() {
+    color () {
       return {
         'background-color': this.loaderColor
       }
     }
   },
   methods: {
-    scrollLoader() {
+    scrollLoader () {
       let pastTime = null
-      return this.closure = () => {
+      return (this.closure = () => {
         let nowTime = +new Date()
         if (nowTime - pastTime > this.loaderThrottle || !pastTime) {
           this.loaderEnable && this.isLoaderInViewport() && this.loaderMethod()
           pastTime = nowTime
         }
-      }
+      })
     },
-    isLoaderInViewport() {
+    isLoaderInViewport () {
       let rect = this.$el.getBoundingClientRect()
       return (rect.top >= 0 && rect.bottom - this.loaderDistance <= window.innerHeight)
     }
   },
-  mounted() {
+  mounted () {
     window.addEventListener('wheel', this.scrollLoader())
   },
-  activated() {
+  activated () {
     !this.closure && window.addEventListener('wheel', this.scrollLoader())
   },
-  deactivated() {
+  deactivated () {
     window.removeEventListener('wheel', this.closure)
     this.closure = null
   }
@@ -74,10 +74,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/**
- * three-dots from:
- * https://github.com/nzbin/three-dots
- */
 .scroll-loader {
     display: flex;
     padding: 30px 0;
