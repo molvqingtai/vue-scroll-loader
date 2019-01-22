@@ -30,11 +30,15 @@ npm install vue-scroll-loader
 
 Use **scroll-loader** to enable the scroll load, and use **loader-*** props to define its options.
 
-The method appointed as the props of **loader-method** will be executed when the bottom of the element reaches the bottom of the viewport.
+The method appointed as the props of **loader-method** will be executed when the bottom of the scroll-loader reaches the bottom of the viewport.
 
 ```html
 <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
-	<!-- You can replace the default loading animation with slot here. -->
+</scroll-loader>
+
+<!-- Replace the default loading animation with slot -->
+<scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
+    <div>Loading...</div>
 </scroll-loader>
 ```
 
@@ -89,7 +93,7 @@ new Vue({
 | :loader-enable   | Scroll-loader will be disabled if the value of this props is false. | true         | Boolean  | --      |
 | :loder-throttle  | Check the frequency of scrolling to the bottom (ms)          | false        | Number   | 100     |
 | :loader-distance | The minimum distance between the bottom of the scroll-loader and the bottom of the viewport before the ":loader-method" method is executed. | false        | Number   | 0       |
-| loader-color     | Load the color of the animation                              | false        | String   | #96C8FF |
+| loader-color     | Loading the color of the animation                           | false        | String   | #96C8FF |
 
 
 
