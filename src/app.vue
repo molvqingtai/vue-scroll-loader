@@ -16,7 +16,8 @@
     </a>
   </div>
 
-  <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore" loader-color="rgba(102,102,102,.5)"></scroll-loader>
+  <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore" loader-color="rgba(102,102,102,.5)">
+  </scroll-loader>
 </div>
 </template>
 

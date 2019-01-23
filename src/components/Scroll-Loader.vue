@@ -47,13 +47,14 @@ export default {
   methods: {
     scrollLoader () {
       let pastTime = null
-      return (this.closure = () => {
+      this.closure = () => {
         let nowTime = +new Date()
         if (nowTime - pastTime > this.loaderThrottle || !pastTime) {
           this.loaderEnable && this.isLoaderInViewport() && this.loaderMethod()
           pastTime = nowTime
         }
-      })
+      }
+      return this.closure
     },
     isLoaderInViewport () {
       let rect = this.$el.getBoundingClientRect()
