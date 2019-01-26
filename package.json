@@ -1,7 +1,7 @@
 {
     "name": "vue-scroll-loader",
-    "version": "1.0.0",
-    "description": "Scroll loader for vue.js",
+    "version": "1.1.0",
+    "description": "A vue-scroll-loader component for vue.js",
     "main": "dist/scroll-loader.umd.js",
     "scripts": {
         "serve": "vue-cli-service serve --open",
@@ -31,10 +31,13 @@
     "keywords": [
         "vue-scroll-loader",
         "vue-scroll",
+        "vue-scroll-load",
         "vue-scroll-loading",
         "vue-infinte",
         "vue-infinte-scroll",
-        "vue-infinte-loading"
+        "vue-infinte-loading",
+        "scroll-load",
+        "scroll-loading"
     ],
     "author": "molvqingtai",
     "license": "MIT",

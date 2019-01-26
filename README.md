@@ -4,7 +4,7 @@
 
 
 
-A vue-scroll-loader plugin for vue.js.
+A vue-scroll-loader component for vue.js.
 
 **[View demo](https://molvqingtai.github.io/vue-scroll-loader/demo.html)**
 
@@ -93,7 +93,8 @@ new Vue({
 | :loader-enable   | Scroll-loader will be disabled if the value of this props is false. | true         | Boolean  | --      |
 | :loder-throttle  | Check the frequency of scrolling to the bottom (ms)          | false        | Number   | 100     |
 | :loader-distance | The minimum distance between the bottom of the scroll-loader and the bottom of the viewport before the ":loader-method" method is executed. | false        | Number   | 0       |
-| loader-color     | Loading the color of the animation                           | false        | String   | #96C8FF |
+| loader-color     | scroll-loader the color of the animation                     | false        | String   | #96C8FF |
+| loader-size      | scroll-loader the size of the animation                      | false        | String   | 35px    |
 
 
 
@@ -106,4 +107,4 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Acknowledgments
 
-[three-dots](https://github.com/nzbin/three-dots)
+[Weston Ganger](https://solidfoundationwebdev.com/blog/posts/simple-google-loader-using-svg-and-css)

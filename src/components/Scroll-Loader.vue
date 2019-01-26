@@ -1,20 +1,17 @@
 <template lang="html">
-    <div class="scroll-loader" v-if="loaderEnable">
-        <slot>
-          <div class="three-dots">
-            <div class="dot-floating" :style="color"></div>
-          </div>
-        </slot>
-    </div>
+    <div class="loader-container" v-if="loaderEnable">
+      <slot>
+        <div class="loader" :style="{width:loaderSize}">
+          <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" :stroke="loaderColor"/>
+          </svg>
+        </div>
+    </slot>
+  </div>
 </template>
 <script>
 export default {
   name: 'ScrollLoader',
-  data () {
-    return {
-      closure: null
-    }
-  },
   props: {
     'loader-method': {
       type: Function,
@@ -35,13 +32,16 @@ export default {
     'loader-color': {
       type: String,
       default: '#96C8FF'
+    },
+    'loader-size': {
+      type: String,
+      default: '35px'
     }
+
   },
-  computed: {
-    color () {
-      return {
-        'background-color': this.loaderColor
-      }
+  data () {
+    return {
+      closure: null
     }
   },
   methods: {
@@ -75,87 +75,57 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.scroll-loader {
-    display: flex;
-    padding: 30px 0;
-    align-items: center;
-    justify-content: center;
-    .three-dots {
-        width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        .dot-floating {
-            position: relative;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #9880ff;
-            animation: dotFloating 3s infinite cubic-bezier(0.15, 0.6, 0.9, 0.1);
-            &::after,
-            &::before {
-                content: '';
-                display: inline-block;
-                position: absolute;
-                top: 0;
-                width: inherit;
-                height: inherit;
-                background-color: inherit;
-                border-radius: inherit;
-            }
-
-            &::before {
-                left: -12px;
-                animation: dotFloatingBefore 3s infinite ease-in-out;
-            }
-            &::after {
-                left: -24px;
-                animation: dotFloatingAfter 3s infinite cubic-bezier(0.4, 0, 1, 1);
+// scaling... any units
+.loader-container {
+    width: 100%;
+    padding: 10px 0;
+    .loader {
+        position: relative;
+        margin: 0 auto;
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+        .circular {
+            animation: rotate 2s linear infinite;
+            height: 100%;
+            transform-origin: center center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            .path {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+                animation: dash 1.5s ease-in-out infinite;
+                stroke-linecap: round;
             }
         }
     }
 }
 
-@keyframes dotFloating {
-    0% {
-        left: calc(-50% - 5px);
-    }
-    75% {
-        left: calc(50% + 105px);
-    }
+@keyframes rotate {
     100% {
-        left: calc(50% + 105px);
+        transform: rotate(360deg);
     }
 }
 
-@keyframes dotFloatingBefore {
+@keyframes dash {
     0% {
-        left: -50px;
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
     }
     50% {
-        left: -12px;
-    }
-    75% {
-        left: -50px;
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
     }
     100% {
-        left: -50px;
-    }
-}
-
-@keyframes dotFloatingAfter {
-    0% {
-        left: -100px;
-    }
-    50% {
-        left: -24px;
-    }
-    75% {
-        left: -100px;
-    }
-    100% {
-        left: -100px;
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
     }
 }
 </style>
