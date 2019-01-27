@@ -2,17 +2,17 @@
 
 ![](https://img.shields.io/github/license/molvqingtai/vue-scroll-loader.svg) ![](https://img.shields.io/github/size/molvqingtai/vue-scroll-loader/dist/scroll-loader.umd.min.js.svg) ![](https://img.shields.io/npm/dt/vue-scroll-loader.svg) ![](https://img.shields.io/npm/v/vue-scroll-loader.svg) 
 
-**[简体中文](https://github.com/molvqingtai/vue-scroll-loader/blob/master/README.zh-CN.md)**
+[**English**](https://github.com/molvqingtai/vue-scroll-loader)
 
-A vue-scroll-loader component for vue.js.
-
-
-
-**[View demo](https://molvqingtai.github.io/vue-scroll-loader/demo.html)**
+一个基于 vue.js 的滚动加载组件
 
 
 
-## Install
+**[查看演示](https://molvqingtai.github.io/vue-scroll-loader/demo.html)**
+
+
+
+## 安装
 
 **NPM**
 
@@ -28,17 +28,18 @@ npm install vue-scroll-loader
 
 
 
-## Usage
+## 使用
 
-Use **scroll-loader** to enable the scroll load, and use **loader-*** props to define its options.
 
-The method appointed as the props of **loader-method** will be executed when the bottom of the scroll-loader reaches the bottom of the viewport.
+使用**scroll-loader**启用滚动加载，并使用**loader-** * props定义其选项。
+
+当**scroll-loader**的底部到达视口的底部时，将执行**loader-method**指定的**方法**。
 
 ```html
 <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
 </scroll-loader>
 
-<!-- Replace the default loading animation with slot -->
+<!-- 用 Solt 替换默认的加载动画 -->
 <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
     <div>Loading...</div>
 </scroll-loader>
@@ -71,7 +72,7 @@ new Vue({
           .then(res => {
             this.images.concat(res.data)
             
-            // Stop scroll-loader
+            // 禁用 scroll-loader
             res.data.length < this.pageSize && (this.loadMore = false)
           })
           .catch(error => {
@@ -87,26 +88,26 @@ new Vue({
 
 
 
-## Options
+## 选项
 
 | Props            | Description                                                  | **Required** | Type     | Default |
 | ---------------- | ------------------------------------------------------------ | ------------ | -------- | ------- |
-| :loader-method   | Scrolling to the bottom to execute the method                | true         | Function | --      |
-| :loader-enable   | Scroll-loader will be disabled if the value of this props is false. | true         | Boolean  | --      |
-| :loder-throttle  | Check the frequency of scrolling to the bottom (ms)          | false        | Number   | 100     |
-| :loader-distance | The minimum distance between the bottom of the scroll-loader and the bottom of the viewport before the ":loader-method" method is executed. | false        | Number   | 0       |
-| loader-color     | scroll-loader the color of the animation                     | false        | String   | #96C8FF |
-| loader-size      | scroll-loader the size of the animation                      | false        | String   | 35px    |
+| :loader-method   | 滚动到视口底部，当 scroll-loader 可见会执行该方法            | true         | Function | --      |
+| :loader-enable   | 如果此props的值为false，则将禁用 scroll-loader               | true         | Boolean  | --      |
+| :loder-throttle  | 检查滚动到底部的频率（ms）                                   | false        | Number   | 100     |
+| :loader-distance | 执行 :loader-method 方法之前，scroll-loader 底部与视口底部之间的最小距离 | false        | Number   | 0       |
+| loader-color     | Scroll-loader 加载动画的颜色                                 | false        | String   | #96C8FF |
+| loader-size      | Scroll-loader 加载动画的大小                                 | false        | String   | 35px    |
 
 
 
 
-## License
+## 执照
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/molvqingtai/vue-scroll-loader/blob/master/LICENSE) file for details
+该项目根据MIT许可证授权 - 有关详细信息，请参阅 [LICENSE](https://github.com/molvqingtai/vue-scroll-loader/blob/master/LICENSE) 文件
 
 
 
-## Acknowledgments
+## 致谢
 
 [Weston Ganger](https://solidfoundationwebdev.com/blog/posts/simple-google-loader-using-svg-and-css)
