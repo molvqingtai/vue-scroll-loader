@@ -31,7 +31,7 @@ npm install vue-scroll-loader
 ## 使用
 
 
-使用**scroll-loader**启用滚动加载，并使用**loader-** * props定义其选项。
+使用**scroll-loader**启用滚动加载，并使用**loader-***  props定义其选项。
 
 当**scroll-loader**的底部到达视口的底部时，将执行**loader-method**指定的**方法**。
 

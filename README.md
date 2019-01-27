@@ -4,7 +4,7 @@
 
 **[简体中文](https://github.com/molvqingtai/vue-scroll-loader/blob/master/README.zh-CN.md)**
 
-A vue-scroll-loader component for vue.js.
+A scroll loading component for vue.js.
 
 
 
