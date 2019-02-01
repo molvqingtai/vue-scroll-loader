@@ -31,7 +31,7 @@ npm install vue-scroll-loader
 ## 使用
 
 
-使用**scroll-loader**启用滚动加载，并使用**loader-***  props定义其选项。
+使用**`<scroll-loader/>`**启用滚动加载，并使用**loader-***  props定义其选项。
 
 当**scroll-loader**的底部到达视口的底部时，将执行**loader-method**指定的**方法**。
 
@@ -90,14 +90,14 @@ new Vue({
 
 ## 选项
 
-| Props            | Description                                                  | **Required** | Type     | Default |
-| ---------------- | ------------------------------------------------------------ | ------------ | -------- | ------- |
-| :loader-method   | 滚动到视口底部，当 scroll-loader 可见会执行该方法            | true         | Function | --      |
-| :loader-enable   | 如果此props的值为false，则将禁用 scroll-loader               | true         | Boolean  | --      |
-| :loder-throttle  | 检查滚动到底部的频率（ms）                                   | false        | Number   | 100     |
-| :loader-distance | 执行 :loader-method 方法之前，scroll-loader 底部与视口底部之间的最小距离 | false        | Number   | 0       |
-| loader-color     | Scroll-loader 加载动画的颜色                                 | false        | String   | #96C8FF |
-| loader-size      | Scroll-loader 加载动画的大小                                 | false        | String   | 35px    |
+| Props           | Description                                                  | **Required** | Type     | Default |
+| --------------- | ------------------------------------------------------------ | ------------ | -------- | ------- |
+| loader-method   | 滚动到视口底部，当 scroll-loader 可见会执行该方法            | true         | Function | --      |
+| loader-enable   | 如果此props的值为false，则将禁用 scroll-loader               | true         | Boolean  | --      |
+| loder-throttle  | 检查滚动到底部的频率（ms）                                   | false        | Number   | 100     |
+| loader-distance | 执行 :loader-method 方法之前，scroll-loader 底部与视口底部之间的最小距离 | false        | Number   | 0       |
+| loader-color    | Scroll-loader 加载动画的颜色                                 | false        | String   | #96C8FF |
+| loader-size     | Scroll-loader 加载动画的大小                                 | false        | String   | 35px    |
 
 
 

@@ -30,7 +30,7 @@ npm install vue-scroll-loader
 
 ## Usage
 
-Use **scroll-loader** to enable the scroll load, and use **loader-*** props to define its options.
+Use **`<scroll-loader/>`** to enable the scroll load, and use **loader-*** props to define its options.
 
 The method appointed as the props of **loader-method** will be executed when the bottom of the scroll-loader reaches the bottom of the viewport.
 
@@ -89,14 +89,14 @@ new Vue({
 
 ## Options
 
-| Props            | Description                                                  | **Required** | Type     | Default |
-| ---------------- | ------------------------------------------------------------ | ------------ | -------- | ------- |
-| :loader-method   | Scrolling to the bottom to execute the method                | true         | Function | --      |
-| :loader-enable   | Scroll-loader will be disabled if the value of this props is false. | true         | Boolean  | --      |
-| :loder-throttle  | Check the frequency of scrolling to the bottom (ms)          | false        | Number   | 100     |
-| :loader-distance | The minimum distance between the bottom of the scroll-loader and the bottom of the viewport before the ":loader-method" method is executed. | false        | Number   | 0       |
-| loader-color     | scroll-loader the color of the animation                     | false        | String   | #96C8FF |
-| loader-size      | scroll-loader the size of the animation                      | false        | String   | 35px    |
+| Props           | Description                                                  | **Required** | Type     | Default |
+| --------------- | ------------------------------------------------------------ | ------------ | -------- | ------- |
+| loader-method   | Scrolling to the bottom to execute the method                | true         | Function | --      |
+| loader-enable   | Scroll-loader will be disabled if the value of this props is false. | true         | Boolean  | --      |
+| loder-throttle  | Check the frequency of scrolling to the bottom (ms)          | false        | Number   | 100     |
+| loader-distance | The minimum distance between the bottom of the scroll-loader and the bottom of the viewport before the ":loader-method" method is executed. | false        | Number   | 0       |
+| loader-color    | scroll-loader the color of the animation                     | false        | String   | #96C8FF |
+| loader-size     | scroll-loader the size of the animation                      | false        | String   | 35px    |
 
 
 
