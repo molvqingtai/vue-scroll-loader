@@ -62,13 +62,13 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('wheel', this.scrollLoader())
+    window.addEventListener('scroll', this.scrollLoader())
   },
   activated () {
-    !this.closure && window.addEventListener('wheel', this.scrollLoader())
+    !this.closure && window.addEventListener('scroll', this.scrollLoader())
   },
   deactivated () {
-    window.removeEventListener('wheel', this.closure)
+    window.removeEventListener('scroll', this.closure)
     this.closure = null
   }
 }
