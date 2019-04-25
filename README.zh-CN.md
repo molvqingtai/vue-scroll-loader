@@ -1,6 +1,6 @@
-# vue-scroll-loader 
+# vue-scroll-loader
 
-![](https://img.shields.io/github/license/molvqingtai/vue-scroll-loader.svg) ![](https://img.shields.io/github/size/molvqingtai/vue-scroll-loader/dist/scroll-loader.umd.min.js.svg) ![](https://img.shields.io/npm/dt/vue-scroll-loader.svg) ![](https://img.shields.io/npm/v/vue-scroll-loader.svg) 
+![](https://img.shields.io/github/license/molvqingtai/vue-scroll-loader.svg) ![](https://img.shields.io/github/size/molvqingtai/vue-scroll-loader/dist/scroll-loader.umd.min.js.svg) ![](https://img.shields.io/npm/dt/vue-scroll-loader.svg) ![](https://img.shields.io/npm/v/vue-scroll-loader.svg)
 
 [**English**](https://github.com/molvqingtai/vue-scroll-loader)
 
@@ -70,8 +70,8 @@ new Vue({
             }
           })
           .then(res => {
-            this.images.concat(res.data)
-            
+            this.images = this.images.concat(res.data)
+
             // 禁用 scroll-loader
             res.data.length < this.pageSize && (this.loadMore = false)
           })

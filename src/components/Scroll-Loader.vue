@@ -23,7 +23,7 @@ export default {
     },
     'loader-throttle': {
       type: Number,
-      default: 100
+      default: 30
     },
     'loader-distance': {
       type: Number,
