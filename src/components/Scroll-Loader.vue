@@ -1,29 +1,29 @@
 <template lang="html">
-    <div class="loader-container" v-if="loaderEnable">
-      <slot>
-        <div class="loader" :style="{width:loaderSize}">
-          <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" :stroke="loaderColor"/>
-          </svg>
-        </div>
+  <div class="loader" v-if="loaderEnable">
+    <slot>
+      <svg viewBox="25 25 50 50" class="loader__svg" :style="size">
+        <circle cx="50" cy="50" r="20" class="loader__circle" :style="color"></circle>
+      </svg>
     </slot>
   </div>
 </template>
+
 <script>
+import 'intersection-observer'
 export default {
   name: 'ScrollLoader',
   props: {
+    'loader-wrapper': {
+      type: Object,
+      default: null
+    },
     'loader-method': {
       type: Function,
       required: true
     },
     'loader-enable': {
       type: Boolean,
-      required: true
-    },
-    'loader-throttle': {
-      type: Number,
-      default: 10
+      default: true
     },
     'loader-distance': {
       type: Number,
@@ -31,101 +31,88 @@ export default {
     },
     'loader-color': {
       type: String,
-      default: '#96C8FF'
+      default: '#666666'
     },
     'loader-size': {
-      type: String,
-      default: '35px'
-    }
-
-  },
-  data () {
-    return {
-      closure: null
+      type: Number,
+      default: 50
     }
   },
-  methods: {
-    scrollLoader () {
-      let pastTime = null
-      this.closure = () => {
-        let nowTime = +new Date()
-        if (nowTime - pastTime > this.loaderThrottle || !pastTime) {
-          this.loaderEnable && this.isLoaderInViewport() && this.loaderMethod()
-          pastTime = nowTime
-        }
+  computed: {
+    size () {
+      return {
+        width: `${this.loaderSize}px`
       }
-      return this.closure
     },
-    isLoaderInViewport () {
-      let rect = this.$el.getBoundingClientRect()
-      return (rect.top >= 0 && rect.bottom - this.loaderDistance <= window.innerHeight)
+    color () {
+      return {
+        stroke: this.loaderColor
+      }
+    },
+    options () {
+      return {
+        root: this.loaderWrapper,
+        rootMargin: `0px 0px ${this.loaderDistance}px 0px`
+      }
+    },
+    observer () {
+      return new IntersectionObserver(([{ isIntersecting }]) => {
+        isIntersecting && this.loaderEnable && this.loaderMethod()
+      }, this.options)
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.scrollLoader())
+    this.observer.observe(this.$el)
   },
   activated () {
-    !this.closure && window.addEventListener('scroll', this.scrollLoader())
+    this.observer.observe(this.$el)
   },
   deactivated () {
-    window.removeEventListener('scroll', this.closure)
-    this.closure = null
+    this.observer.unobserve(this.$el)
+  },
+  beforeDestroy () {
+    this.observer.unobserve(this.$el)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-// scaling... any units
-.loader-container {
-    width: 100%;
-    padding: 10px 0;
-    .loader {
-        position: relative;
-        margin: 0 auto;
-        &:before {
-            content: '';
-            display: block;
-            padding-top: 100%;
-        }
-        .circular {
-            animation: rotate 2s linear infinite;
-            height: 100%;
-            transform-origin: center center;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            .path {
-                stroke-dasharray: 1, 200;
-                stroke-dashoffset: 0;
-                animation: dash 1.5s ease-in-out infinite;
-                stroke-linecap: round;
-            }
-        }
-    }
+.loader{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  &__svg {
+    transform-origin: center;
+    animation: rotate 2s linear infinite;
+  }
+  &__circle {
+    fill: none;
+    stroke-width: 3;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
 }
 
 @keyframes rotate {
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes dash {
-    0% {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0;
-    }
-    50% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -35px;
-    }
-    100% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -124px;
-    }
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dashoffset: -125px;
+  }
 }
 </style>

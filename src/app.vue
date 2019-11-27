@@ -16,47 +16,43 @@
     </a>
   </div>
 
-  <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore" loader-color="rgba(102,102,102,.5)">
+  <scroll-loader :loader-method="getImagesList" :loader-enable="enable" loader-color="rgba(102,102,102,.5)">
   </scroll-loader>
 </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'App',
   data () {
     return {
-      loadMore: true,
+      enable: true,
       page: 1,
-      pageSize: 9,
+      pageSize: 30,
       images: [],
       masksHide: []
     }
   },
   methods: {
-    getImagesInfo () {
-      this.$axios.get('https://api.unsplash.com/photos', {
+    getImagesList () {
+      axios.get('https://api.unsplash.com/photos', {
         params: {
           page: this.page++,
           per_page: this.pageSize,
           client_id: 'e874834b096dcd107c232fe4b0bb521158b62e486580c988b0a75cb0b77a2abe'
         }
+      }).then(res => {
+        res.data && (this.images = [...this.images, ...res.data])
+      }).catch(error => {
+        console.log(error)
       })
-        .then(res => {
-          res.data && res.data.length && (this.images = this.images.concat(res.data))
-        })
-        .catch(error => {
-          console.log(error)
-        })
     }
   },
   watch: {
-    page (n) {
-      n > 30 && (this.loadMore = false)
+    page (value) {
+      value > 10 && (this.enable = false)
     }
-  },
-  mounted () {
-    this.getImagesInfo()
   }
 }
 </script>

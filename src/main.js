@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import axios from 'axios'
 import ScrollLoader from './plugin-entry'
 
 Vue.config.productionTip = false
-
-Vue.prototype.$axios = axios
 
 Vue.use(ScrollLoader)
 

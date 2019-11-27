@@ -4,11 +4,13 @@
     "description": "A scroll loading component for vue.js.",
     "main": "dist/scroll-loader.umd.js",
     "scripts": {
-        "serve": "vue-cli-service serve --open",
+        "serve": "vue-cli-service serve",
         "build": "vue-cli-service build --target lib --name scroll-loader ./src/plugin-entry.js",
         "lint": "vue-cli-service lint"
     },
-    "dependencies": {},
+    "dependencies": {
+        "intersection-observer": "^0.7.0"
+    },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^3.3.0",
         "@vue/cli-plugin-eslint": "^3.3.0",

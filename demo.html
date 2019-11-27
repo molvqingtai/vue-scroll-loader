@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./src/assets/style.css">
   <link rel="stylesheet" href="https://unpkg.com/animate.css">
 
-  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!--   <script src="https://unpkg.com/vue-scroll-loader"></script> -->
   <script src="./dist/scroll-loader.umd.js"></script>
@@ -32,50 +32,44 @@
       </a>
     </div>
 
-    <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore" loader-color="rgba(102,102,102,.5)">
+    <scroll-loader :loader-method="getImagesList" :loader-enable="enable" loader-color="rgba(102,102,102,.5)">
         <!--   You can replace the default loading animation with slot here. -->
     </scroll-loader>
 
   </div>
 </body>
 
-
 <script type="text/javascript">
   new Vue({
     el: '#app',
     data() {
       return {
-        loadMore: true,
+        enable: true,
         page: 1,
-        pageSize: 9,
+        pageSize: 30,
         images: [],
         masksHide: []
       }
     },
     methods: {
-      getImagesInfo() {
+      getImagesList() {
         axios.get('https://api.unsplash.com/photos', {
-            params: {
-              page: this.page++,
-              per_page: this.pageSize,
-              client_id: 'e874834b096dcd107c232fe4b0bb521158b62e486580c988b0a75cb0b77a2abe'
-            }
-          })
-          .then(res => {
-            res.data && res.data.length && (this.images = this.images.concat(res.data))
-          })
-          .catch(error => {
-            console.log(error);
-          })
+          params: {
+            page: this.page++,
+            per_page: this.pageSize,
+            client_id: 'e874834b096dcd107c232fe4b0bb521158b62e486580c988b0a75cb0b77a2abe'
+          }
+        }).then(res => {
+          res.data && (this.images = [...this.images, ...res.data])
+        }).catch(error => {
+          console.log(error)
+        })
       }
     },
     watch: {
-      page(n) {
-        n > 30 && (this.loadMore = false)
+      page (value) {
+        value > 10 && (this.loadMore = false)
       }
-    },
-    mounted() {
-      this.getImagesInfo()
     }
   })
 </script>
