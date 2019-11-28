@@ -25,14 +25,14 @@
         </div>
       </div>
     </div>
-    <div class="copyright-container" v-if="!loadMore">
+    <div class="copyright-container" v-if="disable">
       <a class="copyright-container__link" href="https://github.com/molvqingtai">
         <p class="copyright-container__text">By molvqingtai</p>
         <img class="copyright-container__icon" src="./src/assets/github.png">
       </a>
     </div>
 
-    <scroll-loader :loader-method="getImagesList" :loader-enable="enable" loader-color="rgba(102,102,102,.5)">
+    <scroll-loader :loader-method="getImagesList" :loader-disable="disable" loader-color="rgba(102,102,102,.5)">
         <!--   You can replace the default loading animation with slot here. -->
     </scroll-loader>
 
@@ -44,7 +44,7 @@
     el: '#app',
     data() {
       return {
-        enable: true,
+        disable: false,
         page: 1,
         pageSize: 30,
         images: [],
@@ -68,7 +68,7 @@
     },
     watch: {
       page (value) {
-        value > 10 && (this.loadMore = false)
+        this.disable = value > 10
       }
     }
   })

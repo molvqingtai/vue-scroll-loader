@@ -9,14 +9,14 @@
       </div>
     </div>
   </div>
-  <div class="copyright-container" v-if="!loadMore">
+  <div class="copyright-container" v-if="disable">
     <a class="copyright-container__link" href="#">
       <p class="copyright-container__text">By molvqingtai</p>
       <img class="copyright-container__icon" src="./assets/github.png">
     </a>
   </div>
 
-  <scroll-loader :loader-method="getImagesList" :loader-enable="enable" loader-color="rgba(102,102,102,.5)">
+  <scroll-loader :loader-method="getImagesList" :loader-disable="disable" loader-color="rgba(102,102,102,.5)">
   </scroll-loader>
 </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   name: 'App',
   data () {
     return {
-      enable: true,
+      disable: false,
       page: 1,
       pageSize: 30,
       images: [],
@@ -51,7 +51,7 @@ export default {
   },
   watch: {
     page (value) {
-      value > 10 && (this.enable = false)
+      this.disable = value > 10
     }
   }
 }

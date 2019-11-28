@@ -31,17 +31,17 @@ npm install vue-scroll-loader
 ## 使用
 
 
-使用**`<scroll-loader/>`**启用滚动加载，并使用**loader-***  props定义其选项。
+使用**`<scroll-loader/>`**启用滚动加载，并使用 **`loader-*`**  props 定义其选项。
 
-当**scroll-loader**的底部到达视口的底部时，将执行**loader-method**指定的**方法**。
+当 **scroll-loader **到达视口的底部时，将执行 **loader-method** 指定的**方法**。
 
 ```html
-<scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
+<scroll-loader :loader-method="getImagesList" :loader-disable="disable">
 </scroll-loader>
 
 <!-- 用 Solt 替换默认的加载动画 -->
-<scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
-    <div>Loading...</div>
+<scroll-loader :loader-method="getImagesList" :loader-disable="disable">
+   <div>Loading...</div>
 </scroll-loader>
 ```
 
@@ -55,14 +55,14 @@ new Vue({
     el: '#app',
     data() {
       return {
-        loadMore: true,
+        disable: false,
         page: 1,
-        pageSize: 9,
+        pageSize: 30,
         images: [],
       }
     },
     methods: {
-      getImagesInfo() {
+      getImagesList() {
         axios.get('https://api.example.com/', {
             params: {
               page: this.page++,
@@ -70,18 +70,15 @@ new Vue({
             }
           })
           .then(res => {
-            this.images = this.images.concat(res.data)
+           	this.images = [...this.images, ...res.data]
 
-            // 禁用 scroll-loader
-            res.data.length < this.pageSize && (this.loadMore = false)
+            // 停止滚动加载...
+          	this.disable = res.data.length < this.pageSize
           })
           .catch(error => {
             console.log(error);
           })
       }
-    },
-    mounted() {
-      this.getImagesInfo()
     }
   })
 ```
@@ -90,14 +87,14 @@ new Vue({
 
 ## 选项
 
-| Props           | Description                                                  | **Required** | Type     | Default |
-| --------------- | ------------------------------------------------------------ | ------------ | -------- | ------- |
-| loader-method   | 滚动到视口底部，当 scroll-loader 可见会执行该方法            | true         | Function | --      |
-| loader-enable   | 如果此props的值为false，则将禁用 scroll-loader               | true         | Boolean  | --      |
-| loder-throttle  | 检查滚动到底部的频率（ms）                                   | false        | Number   | 100     |
-| loader-distance | 执行 :loader-method 方法之前，scroll-loader 底部与视口底部之间的最小距离 | false        | Number   | 0       |
-| loader-color    | Scroll-loader 加载动画的颜色                                 | false        | String   | #96C8FF |
-| loader-size     | Scroll-loader 加载动画的大小                                 | false        | String   | 35px    |
+| Props           | Description                                                  | **Required** | Type     | Default  |
+| --------------- | ------------------------------------------------------------ | ------------ | -------- | -------- |
+| loader-method   | 滚动到视口底部，当 scroll-loader 可见会执行该方法            | true         | Function | --       |
+| loader-disable  | 如果此 props 的值为 true，则将禁用 scroll-loader             | false        | Boolean  | false    |
+| loader-distance | 执行 loader-method 方法之前，scroll-loader 与视口底部之间的最小距离 | false        | Number   | 0        |
+| loader-color    | Scroll-loader 加载动画的颜色                                 | false        | String   | #666666  |
+| loader-size     | Scroll-loader 加载动画的大小                                 | false        | Number   | 50       |
+| loader-wrapper  | Scroll-loader 相对的视口元素，默认顶级文档视口               | false        | Element  | viewport |
 
 
 

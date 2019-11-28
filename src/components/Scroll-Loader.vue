@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="loader" v-if="loaderEnable">
+  <div class="loader" v-if="!loaderDisable">
     <slot>
       <svg viewBox="25 25 50 50" class="loader__svg" :style="size">
         <circle cx="50" cy="50" r="20" class="loader__circle" :style="color"></circle>
@@ -13,17 +13,13 @@ import 'intersection-observer'
 export default {
   name: 'ScrollLoader',
   props: {
-    'loader-wrapper': {
-      type: Object,
-      default: null
-    },
     'loader-method': {
       type: Function,
       required: true
     },
-    'loader-enable': {
+    'loader-disable': {
       type: Boolean,
-      default: true
+      default: false
     },
     'loader-distance': {
       type: Number,
@@ -36,6 +32,10 @@ export default {
     'loader-size': {
       type: Number,
       default: 50
+    },
+    'loader-wrapper': {
+      type: Object,
+      default: null
     }
   },
   computed: {
@@ -57,7 +57,7 @@ export default {
     },
     observer () {
       return new IntersectionObserver(([{ isIntersecting }]) => {
-        isIntersecting && this.loaderEnable && this.loaderMethod()
+        isIntersecting && !this.loaderDisable && this.loaderMethod()
       }, this.options)
     }
   },
