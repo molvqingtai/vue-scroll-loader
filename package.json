@@ -1,6 +1,6 @@
 {
     "name": "vue-scroll-loader",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "A scroll loading component for vue.js.",
     "main": "dist/scroll-loader.umd.min.js",
     "scripts": {

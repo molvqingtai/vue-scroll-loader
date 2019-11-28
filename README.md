@@ -93,7 +93,7 @@ new Vue({
 | loader-distance | The minimum distance between the scroll-loader and the bottom of the viewport before the loader-method method is executed. | false        | Number   | 0        |
 | loader-color    | scroll-loader the color of the animation.                    | false        | String   | #666666  |
 | loader-size     | scroll-loader the size of the animation.                     | false        | Number   | 50       |
-| loader-wrapper  | scroll-loader relative viewport element,default top-level document viewport. | false        | Element  | viewport |
+| loader-viewport | scroll-loader relative viewport element,default top-level document viewport. | false        | Element  | viewport |
 
 
 

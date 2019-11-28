@@ -94,7 +94,7 @@ new Vue({
 | loader-distance | 执行 loader-method 方法之前，scroll-loader 与视口底部之间的最小距离 | false        | Number   | 0        |
 | loader-color    | Scroll-loader 加载动画的颜色                                 | false        | String   | #666666  |
 | loader-size     | Scroll-loader 加载动画的大小                                 | false        | Number   | 50       |
-| loader-wrapper  | Scroll-loader 相对的视口元素，默认顶级文档视口               | false        | Element  | viewport |
+| loader-viewport | Scroll-loader 相对的视口元素，默认顶级文档视口               | false        | Element  | viewport |
 
 
 
@@ -102,9 +102,3 @@ new Vue({
 ## 执照
 
 该项目根据MIT许可证授权 - 有关详细信息，请参阅 [LICENSE](https://github.com/molvqingtai/vue-scroll-loader/blob/master/LICENSE) 文件
-
-
-
-## 致谢
-
-[Weston Ganger](https://solidfoundationwebdev.com/blog/posts/simple-google-loader-using-svg-and-css)

@@ -33,7 +33,7 @@ export default {
       type: Number,
       default: 50
     },
-    'loader-wrapper': {
+    'loader-viewport': {
       type: Object,
       default: null
     }
@@ -51,7 +51,7 @@ export default {
     },
     options () {
       return {
-        root: this.loaderWrapper,
+        root: this.loaderViewport,
         rootMargin: `0px 0px ${this.loaderDistance}px 0px`
       }
     },
