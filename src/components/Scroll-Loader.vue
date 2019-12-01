@@ -27,7 +27,7 @@ export default {
     },
     'loader-color': {
       type: String,
-      default: '#666666'
+      default: '#CCCCCC'
     },
     'loader-size': {
       type: Number,

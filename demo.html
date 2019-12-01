@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh" dir="ltr">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <title>Vue-Scroll-Loader</title>
   <link rel="stylesheet" href="./src/assets/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/animate.css">
-
+  
   <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<!--   <script src="https://unpkg.com/vue-scroll-loader"></script> -->
   <script src="./dist/scroll-loader.umd.js"></script>
+
+  <style media="screen">
+    .images-item{
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-name: fadeInUp;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10%) scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0%) scale(1.0);
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -32,7 +49,7 @@
       </a>
     </div>
 
-    <scroll-loader :loader-method="getImagesList" :loader-disable="disable" loader-color="rgba(102,102,102,.5)">
+    <scroll-loader :loader-method="getImageList" :loader-disable="disable">
         <!--   You can replace the default loading animation with slot here. -->
     </scroll-loader>
 
@@ -52,7 +69,7 @@
       }
     },
     methods: {
-      getImagesList() {
+      getImageList() {
         axios.get('https://api.unsplash.com/photos', {
           params: {
             page: this.page++,
