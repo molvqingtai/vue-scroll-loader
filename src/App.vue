@@ -57,9 +57,8 @@ export default {
 }
 </script>
 
+<style lang="css" scoped src="./assets/style.css"></style>
 <style lang="css" scoped>
-@import './assets/style.css';
-
 .images-item{
   animation-duration: 1s;
   animation-fill-mode: both;
