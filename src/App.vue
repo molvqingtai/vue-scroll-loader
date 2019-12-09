@@ -68,7 +68,7 @@ export default {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30%) scale(0.9);
+    transform: translateY(10%) scale(0.9);
   }
 
   to {
