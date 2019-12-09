@@ -44,11 +44,11 @@ npm install vue-scroll-loader
 当 **scroll-loader **到达视口的底部时，将执行 **loader-method** 指定的**方法**。
 
 ```html
-<scroll-loader :loader-method="getImagesList" :loader-disable="disable">
+<scroll-loader :loader-method="getImageList" :loader-disable="disable">
 </scroll-loader>
 
 <!-- 用 Solt 替换默认的加载动画 -->
-<scroll-loader :loader-method="getImagesList" :loader-disable="disable">
+<scroll-loader :loader-method="getImageList" :loader-disable="disable">
    <div>Loading...</div>
 </scroll-loader>
 ```
@@ -70,7 +70,7 @@ new Vue({
       }
     },
     methods: {
-      getImagesList() {
+      getImageList() {
         axios.get('https://api.example.com/', {
             params: {
               page: this.page++,
@@ -110,3 +110,10 @@ new Vue({
 ## 执照
 
 该项目根据MIT许可证授权 - 有关详细信息，请参阅 [LICENSE](https://github.com/molvqingtai/vue-scroll-loader/blob/master/LICENSE) 文件
+
+
+
+## 致谢
+
+默认加载动画来自 [CSSFX](https://github.com/jolaleye/cssfx)
+

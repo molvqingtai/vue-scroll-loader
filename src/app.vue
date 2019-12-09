@@ -4,19 +4,19 @@
   <div class="images-container">
     <div class="images-item" v-for="(image,index) of images" :key="index">
       <div class="images-card">
-        <img class="images-card__image" :src="image.urls.small" @load="masksHide.push(index)">
-        <div class="images-card__mask" :style="{'background-color':image.color}" v-if="!masksHide.includes(index)"></div>
+        <img class="images-card__image" :src="image.urls.small" @load="masks.push(index)">
+        <div class="images-card__mask" :style="{'background-color':image.color}" v-if="!masks.includes(index)"></div>
       </div>
     </div>
   </div>
   <div class="copyright-container" v-if="disable">
-    <a class="copyright-container__link" href="#">
+    <a class="copyright-container__link" href="https://github.com/molvqingtai">
       <p class="copyright-container__text">By molvqingtai</p>
       <img class="copyright-container__icon" src="./assets/github.png">
     </a>
   </div>
 
-  <scroll-loader :loader-method="getImageList" :loader-disable="disable" loader-color="rgba(102,102,102,.5)">
+  <scroll-loader :loader-method="getImageList" :loader-disable="disable">
   </scroll-loader>
 </div>
 </template>
@@ -31,7 +31,7 @@ export default {
       page: 1,
       pageSize: 30,
       images: [],
-      masksHide: []
+      masks: []
     }
   },
   methods: {
@@ -68,7 +68,7 @@ export default {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10%) scale(0.9);
+    transform: translateY(30%) scale(0.9);
   }
 
   to {
