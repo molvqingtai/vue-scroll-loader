@@ -34,7 +34,7 @@ export default {
       default: 50
     },
     'loader-viewport': {
-      type: Object,
+      type: Element,
       default: null
     }
   },
