@@ -1,6 +1,6 @@
 {
     "name": "vue-scroll-loader",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "description": "A scroll loading component for vue.js.",
     "main": "dist/scroll-loader.umd.min.js",
     "scripts": {
@@ -17,15 +17,15 @@
     "devDependencies": {
         "@commitlint/cli": "^8.3.5",
         "@commitlint/config-conventional": "^8.3.4",
-        "@vue/cli-plugin-babel": "^4.2.2",
-        "@vue/cli-plugin-eslint": "^4.2.2",
-        "@vue/cli-service": "^4.2.2",
+        "@vue/cli-plugin-babel": "^4.2.3",
+        "@vue/cli-plugin-eslint": "^4.2.3",
+        "@vue/cli-service": "^4.2.3",
         "@vue/eslint-config-standard": "^4.0.0",
-        "babel-eslint": "^10.0.3",
+        "babel-eslint": "^10.1.0",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.0.0",
         "lint-staged": "^9.4.3",
-        "sass": "^1.25.0",
+        "sass": "^1.26.3",
         "sass-loader": "^8.0.2",
         "vue-template-compiler": "^2.6.11"
     },

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="loader" v-if="!loaderDisable">
+  <div class="loader" v-show="!loaderDisable">
     <slot>
       <svg viewBox="25 25 50 50" class="loader__svg" :style="size">
         <circle cx="50" cy="50" r="20" class="loader__circle" :style="color"></circle>
