@@ -9,7 +9,7 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "core-js": "^3.6.4",
         "intersection-observer": "^0.7.0",
         "vue": "^2.6.11"
